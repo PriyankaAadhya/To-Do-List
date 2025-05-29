@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #153677, #4e085f);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 30px 70px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.todo-app h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.todo-app h2 i {
+    margin-left: 10px;
+    color: #007bff;
+    font-size: 38px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+button#addTaskBtn {
+    border: none;
+    outline: none;
+    padding: 16px 30px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.3s ease;
+}
+
+button#addTaskBtn:hover {
+    background: #0056b3;
+}
+
+ul#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+ul#taskList li {
+    font-size: 18px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+ul#taskList li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+ul#taskList li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png); /* Placeholder, will be added by JS */
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul#taskList li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul#taskList li.checked::before {
+    background-image: url(images/checked.png); /* Placeholder, will be added by JS */
+}
+
+ul#taskList li span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
+}
+
+ul#taskList li span:hover {
+    background: #edeef0;
+    color: #ff0000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 30px 20px 50px;
+    }
+
+    .todo-app h2 {
+        font-size: 28px;
+    }
+
+    .todo-app h2 i {
+        font-size: 32px;
+    }
+
+    .row {
+        flex-direction: column;
+        padding-left: 0;
+        border-radius: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    button#addTaskBtn {
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    ul#taskList li {
+        padding: 10px 8px 10px 45px;
+        font-size: 16px;
+    }
+
+    ul#taskList li::before {
+        height: 24px;
+        width: 24px;
+        top: 10px;
+        left: 5px;
+    }
+
+    ul#taskList li span {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+        line-height: 35px;
+    }
+}
